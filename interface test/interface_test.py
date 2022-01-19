@@ -15,17 +15,23 @@ def clicked():
         ##labelStatus.configure(text=f'{fileName} is being recorded, press Q to stop', bg='#ffbf00')
         
 
-        cap = cv.VideoCapture(0)
+        cap = cv.VideoCapture(0,cv.CAP_DSHOW)
         if not cap.isOpened():
 	        print('can not open')
 	        exit()
 
-        frame_width = int(cap.get(3))
-        frame_height = int(cap.get(4))
+        #frame_width = int(cap.get(3))
+        #frame_height = int(cap.get(4))
+        frame_width = int(1920)
+        frame_height = int(1080)
+        cap.set(cv.CAP_PROP_FRAME_WIDTH, 1920)
+        cap.set(cv.CAP_PROP_FRAME_HEIGHT, 1080)
         size = (frame_width, frame_height)
+        fourcc = cv.VideoWriter_fourcc(*'DIVX')
         result = cv.VideoWriter(fileName, 
-                   0x7634706d ,
-                   30, size)
+                   #0x7634706d ,
+                   fourcc,
+                   20.0, size)
 
         while True:
             ret, frame = cap.read()
