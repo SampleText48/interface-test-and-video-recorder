@@ -113,5 +113,5 @@ custom_button.pack(side='bottom')
 	    ##cv.imshow('current recording', frame)
 
 ##cap.release()
-##cv.destroyAllWindows()
+##cv.destroyAllWindows() why are you not pushing aaaaaaaaaa
 root.mainloop()
